@@ -12,10 +12,23 @@
 	
 	<!-- 配置注解扫描器 -->
 	<context:component-scan base-package="com.etoak">
+		
+		
 		<context:include-filter type="annotation" 
 		expression="org.springframework.stereotype.Controller"/>
 		<context:include-filter type="annotation" 
 		expression="org.springframework.web.bind.annotation.RestController"/>
+		
+		<!-- 排除@Service @Repository -->
+		<context:exclude-filter type="annotation" 
+		expression="org.springframework.stereotype.Service"/>
+		<context:exclude-filter type="annotation" 
+		expression="org.springframework.stereotype.Repository"/>
+	
+		
+		
+		
+		
 	</context:component-scan>
 	
 	<!-- 开启spring mvc配置 -->
