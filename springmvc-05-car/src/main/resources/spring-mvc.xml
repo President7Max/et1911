@@ -13,7 +13,6 @@
 	<!-- 配置注解扫描器 -->
 	<context:component-scan base-package="com.etoak">
 		
-		
 		<context:include-filter type="annotation" 
 		expression="org.springframework.stereotype.Controller"/>
 		<context:include-filter type="annotation" 
@@ -25,10 +24,6 @@
 		<context:exclude-filter type="annotation" 
 		expression="org.springframework.stereotype.Repository"/>
 	
-		
-		
-		
-		
 	</context:component-scan>
 	
 	<!-- 开启spring mvc配置 -->
@@ -36,6 +31,9 @@
 	
 	<!-- spring mvc 的静态资源处理方式 -->
 	<mvc:default-servlet-handler/>
+	
+	<!-- 定义图片的访问方式 -->
+	<mvc:resources location="file:D:/1998a/Java" mapping="/pic/**" />
 	
 	<!-- 整合Thymeleaf -->
 	<bean id="templateResolver" class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver">
@@ -53,6 +51,12 @@
 		<property name="templateEngine" ref="templateEngine"></property>
 		<property name="characterEncoding" value="UTF-8"></property>
 	</bean>
-		
-		
+	
+	<!-- 文件上传解析器 id必须是:multipartResolver-->	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 限制文件大小2MB -->
+		<property name="maxUploadSize" value="2097152"></property>
+	</bean>
+	
+	
 </beans>
