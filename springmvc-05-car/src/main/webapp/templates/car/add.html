@@ -7,6 +7,10 @@
 <title>车辆添加</title>
 </head>
 <body>
+<div>
+	<span th:text="${paramError}"></span>
+</div>
+
 <h2>车辆添加</h2>
 <hr>
 <div id="form">
@@ -132,7 +136,8 @@
 		et1911.querySelectDict('level');
 		et1911.querySelectDict('output_volume');
 		et1911.queryGearbox();
-		et1911.validateForm();
+		
+		//et1911.validateForm();
 	})
 	
 	let et1911 = {
