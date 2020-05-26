@@ -49,10 +49,7 @@ public class CarController {
 	@RequestMapping("/add")
 	public String add(MultipartFile file,
 			@Valid Car car,BindingResult bindingResult,HttpServletRequest request) throws Exception {
-		String originalFilename = file.getOriginalFilename();
 		
-		log.info("文件名称 - {}",file.getOriginalFilename());
-		log.info("param car - {}",car);
 		
 		//校验Car
 		List<ObjectError> allErrors = bindingResult.getAllErrors();
@@ -70,7 +67,10 @@ public class CarController {
 			//抛出ParamException异常
 			throw new ParamException(errorBuf.toString());
 		}
+		String originalFilename = file.getOriginalFilename();
 		
+		log.info("文件名称 - {}",file.getOriginalFilename());
+		log.info("param car - {}",car);
 		
 		String uuid = UUID.randomUUID().toString().replaceAll("-", "");
 		String newFilename = uuid + "_" + originalFilename;
@@ -95,9 +95,10 @@ public class CarController {
 	public PageVo<CarVo> queryList(
 	@RequestParam(required = false,defaultValue = "1") int pageNum,
 	@RequestParam(required = false,defaultValue = "8") int pageSize,
-	CarVo carVo
+	CarVo carVo,
+	String[] priceList
 		){
-		return carService.queryList(pageNum, pageSize, carVo);
+		return carService.queryList(pageNum, pageSize, carVo, priceList);
 	}
 	
 	

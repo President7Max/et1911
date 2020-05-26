@@ -18,6 +18,8 @@ public interface CarMapper {
 	//获取所有品牌
 	List<String> getAllBrand();
 	
+	
+	
 	//根据品牌查询车系
 	List<String> getSeriesByBrand(@Param("brand") String brand);
 	
