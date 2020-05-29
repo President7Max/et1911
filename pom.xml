@@ -16,6 +16,10 @@
     <module>et1911-activemq</module>
     <module>et1911_activemq</module>
     <module>activemq-test</module>
+		<module>webservice</module>
+        <module>et1911-webservice1</module>
+		<module>webservice-jdk-server</module>
+		<module>et1911-webservice1/webservice-jdk-server1</module>
 	</modules>
 	<!-- 作用：声明依赖，但是不引入依赖，由子工程决定自己 -->
 	<dependencyManagement>
