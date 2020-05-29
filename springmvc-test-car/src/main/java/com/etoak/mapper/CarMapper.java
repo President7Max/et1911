@@ -9,18 +9,12 @@ import com.etoak.bean.CarVo;
 
 public interface CarMapper {
 	
-	//添加
 	int addCar(Car car);
 	
-	//查询
 	List<CarVo> queryList(CarVo carVo);
 	
-	//获取所有品牌
-	List<String> getAllBrand();
+	List<String> queryBrand();
 	
-	//根据品牌查询车系
-	List<String> getSeriesByBrand(@Param("brand") String brand);
-	
-	
+	List<String> querySeriesByBrand(@Param("brand") String brand);
 	
 }

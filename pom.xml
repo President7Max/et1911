@@ -13,7 +13,10 @@
     <module>springmvc-04-param</module>
     <module>springmvc-05-car</module>
     <module>springmvc-test-car</module>
-  </modules>
+    <module>et1911-activemq</module>
+    <module>et1911_activemq</module>
+    <module>activemq-test</module>
+	</modules>
 	<!-- 作用：声明依赖，但是不引入依赖，由子工程决定自己 -->
 	<dependencyManagement>
 		<dependencies>
